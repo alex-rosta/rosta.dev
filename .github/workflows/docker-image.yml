@@ -50,6 +50,7 @@ jobs:
           cd rosta.dev-helm/nextjsapp
           git config --global user.name 'alexrsit'
           git config --global user.email 'alexander.olander.rosta@regionsormland.se'
+          git branch -m main
           git add values.yaml
           git commit -m 'Update Helm chart with new Docker image tag'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/alexrsit/rosta.dev-helm.git
