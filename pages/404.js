@@ -7,7 +7,7 @@ const Custom404 = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             router.push('/');
-        }, 5000);
+        }, 1000);
 
         // Cleanup the timeout if the component unmounts
         return () => clearTimeout(timeout);
@@ -16,7 +16,7 @@ const Custom404 = () => {
     return (
         <div className="flex justify-center items-center h-screen">
             <h1 className="text-4xl">Page Not Found</h1>
-            <p className="text-lg">Redirecting to home page in 5 seconds...</p>
+            <p className="text-lg">Redirecting to home page in 1 seconds...</p>
         </div>
     );
 };
