@@ -25,13 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish_images
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Clone Helm Chart Repository
         run: |
           git clone https://github.com/alexrsit/rosta.dev-helm.git
-          cd rosta.dev-helm
           ls -la
 
       - name: Print current directory
@@ -45,6 +41,7 @@ jobs:
           cd rosta.dev-helm/nextjsapp
           sed -i 's|repository: .*|repository: alexrsit/nextjsapp|' values.yaml
           sed -i 's|tag: .*|tag: 2.0|' values.yaml
+          cat values.yaml
 
       - name: Commit and push changes
         env:
