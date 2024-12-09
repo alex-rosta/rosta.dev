@@ -24,29 +24,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
-      - name: Extract version from readme
-        id: version
-        run: |
-          VERSION=$(grep -oP '(?<=Version: )\d+\.\d+\.\d+' README.md)
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-      - name: Clone Helm Chart Repository
+      - name: Update Helm chart with new image tag
         run: |
-          git clone https://github.com/alexrsit/rosta.dev-helm.git
-          cd rosta.dev-helm
+          sed -i 's|repository: .*|repository: alexrsit/nextjsapp|' ./charts/mychart/values.yaml
+          sed -i 's|tag: .*|tag: latest|' ./charts/mychart/values.yaml
 
-      - name: Update Helm Chart
-        run: |
-          cd rosta.dev-helm
-          sed -i "s/^appVersion:.*/appVersion: ${VERSION}/" Chart.yaml
-      
       - name: Commit and push changes
         run: |
-          cd rosta.dev-helm
-          git config --global user.email "alexander.olander.rosta@regionsormland.se"
-          git config --global user.name "alexrsit"
-          git add Chart.yaml
-          git commit -m "Update appVersion to ${VERSION}"
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add ./charts/mychart/values.yaml
+          git commit -m 'Update Helm chart with new Docker image tag'
           git push origin main
           
