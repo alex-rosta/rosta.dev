@@ -52,5 +52,6 @@ jobs:
           git config --global user.email 'alexander.olander.rosta@regionsormland.se'
           git add values.yaml
           git commit -m 'Update Helm chart with new Docker image tag'
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/alexrsit/rosta.dev-helm.git main
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/alexrsit/rosta.dev-helm.git
+          git push origin main
           
