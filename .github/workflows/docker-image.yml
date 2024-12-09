@@ -45,7 +45,7 @@ jobs:
 
       - name: Commit and push changes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
         run: |
           cd rosta.dev-helm/nextjsapp
           git config --global user.name 'alexrsit'
@@ -53,6 +53,6 @@ jobs:
           git branch -m main
           git add values.yaml
           git commit -m 'Update Helm chart with new Docker image tag'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/alexrsit/rosta.dev-helm.git
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_GITHUB }}@github.com/alexrsit/rosta.dev-helm.git
           git push origin main
           
