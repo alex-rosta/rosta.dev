@@ -32,6 +32,13 @@ jobs:
         run: |
           git clone https://github.com/alexrsit/rosta.dev-helm.git
           cd rosta.dev-helm
+          ls -la
+
+      - name: Print current directory
+        run: pwd
+  
+      - name: List files in current directory
+        run: ls -la
 
       - name: Update Helm chart with new image tag
         run: |
