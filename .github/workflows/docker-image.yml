@@ -32,7 +32,7 @@ jobs:
 
       - name: Update Helm chart with new image tag
         run: |
-          cd rosta.dev-helm
+          cd rosta.dev-helm/nextjsapp
           sed -i 's|repository: .*|repository: alexrsit/nextjsapp|' values.yaml
           sed -i 's|tag: .*|tag: latest|' values.yaml
 
@@ -40,7 +40,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd rosta.dev-helm
+          cd rosta.dev-helm/nextjsapp
           git config --global user.name 'alexrsit'
           git config --global user.email 'alexander.olander.rosta@regionsormland.se'
           git add values.yaml
