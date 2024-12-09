@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build Docker Image
-        run: docker build . -t alexrsit/nextjsapp:latest
+        run: docker build . -t alexrsit/nextjsapp:2.0
       - name: Push Docker Image
         run: |
           docker login -u alexrsit -p ${{ secrets.DOCKERHUB_PAT }}
@@ -34,7 +34,7 @@ jobs:
         run: |
           cd rosta.dev-helm/nextjsapp
           sed -i 's|repository: .*|repository: alexrsit/nextjsapp|' values.yaml
-          sed -i 's|tag: .*|tag: latest|' values.yaml
+          sed -i 's|tag: .*|tag: 2.0|' values.yaml
 
       - name: Commit and push changes
         env:
