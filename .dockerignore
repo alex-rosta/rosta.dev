@@ -3,3 +3,7 @@ node_modules
 README.md
 .env
 .env.local
+.github
+.gitignore
+.vscode
+.git
