@@ -28,13 +28,9 @@ export default function VortexDemoSecond() {
             className="px-4 py-2 bg-green-600 hover:bg-green-700 transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]">
             Let&apos;s go!
           </Link>
-          <Link href="/gaming"
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]">
-            Gaming
-          </Link>
-          <Link href="/wow"
-            className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]">
-            World of Warcraft
+          <Link href="/#"
+            className="px-4 py-2 bg-gray-600 hover:bg-gray-700 transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]">
+            Test auth &#40;coming soon&#41;
           </Link>
         </div>
       </Vortex>
