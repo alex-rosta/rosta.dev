@@ -1,7 +1,9 @@
 name: Build Docker Image and push to Docker Hub
 
 on:
-  [workflow_dispatch]
+  push:
+    branches:
+      - main
 
 jobs:
   publish_images:
