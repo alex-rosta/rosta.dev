@@ -12,5 +12,6 @@ jobs:
       - name: Build Docker Image
         run: docker build . -t alexrsit/nextjsapp:latest
       - name: Push Docker Image
-        run: | 
+        run: |
+          docker login -u alexrsit -p ${{ secrets.DOCKERHUB_PAT }}
           docker push alexrsit/nextjsapp:latest
