@@ -16,7 +16,7 @@ jobs:
       - name: Push Docker Image
         run: |
           docker login -u alexrsit -p ${{ secrets.DOCKERHUB_PAT }}
-          docker push alexrsit/nextjsapp:latest
+          docker push alexrsit/nextjsapp:2.0
 
   update_helm_chart:
     runs-on: ubuntu-latest
