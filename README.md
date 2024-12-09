@@ -20,3 +20,4 @@ This is built using UI components from Aceternity UI https://ui.aceternity.com/
 Also utilizing API functionality from Blizzard, Steam and Spotify. 
 This project serves as an about me page including workrelated stuff and personal things.
 //Alex
+Version: 1.1

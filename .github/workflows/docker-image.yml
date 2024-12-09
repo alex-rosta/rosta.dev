@@ -1,4 +1,4 @@
-name: Build Docker Image and push to Docker Hub
+name: Build Docker Image and push to Docker Hub, also update associated helm chart
 
 on:
   push:
@@ -17,3 +17,36 @@ jobs:
         run: |
           docker login -u alexrsit -p ${{ secrets.DOCKERHUB_PAT }}
           docker push alexrsit/nextjsapp:latest
+
+  update_helm_chart:
+    runs-on: ubuntu-latest
+    needs: publish_images
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Extract version from readme
+        id: version
+        run: |
+          VERSION=$(grep -oP '(?<=Version: )\d+\.\d+\.\d+' README.md)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Clone Helm Chart Repository
+        run: |
+          git clone https://github.com/alexrsit/rosta.dev-helm.git
+          cd rosta.dev-helm
+
+      - name: Update Helm Chart
+        run: |
+          cd rosta.dev-helm
+          sed -i "s/^appVersion:.*/appVersion: ${VERSION}/" Chart.yaml
+      
+      - name: Commit and push changes
+        run: |
+          cd rosta.dev-helm
+          git config --global user.email "alexander.olander.rosta@regionsormland.se"
+          git config --global user.name "alexrsit"
+          git add Chart.yaml
+          git commit -m "Update appVersion to ${VERSION}"
+          git push origin main
+          
