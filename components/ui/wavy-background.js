@@ -1,7 +1,7 @@
-"use client";
-import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useState } from "react";
-import { createNoise3D } from "simplex-noise";
+'use client';
+import { cn } from '@/lib/utils';
+import React, { useEffect, useRef, useState } from 'react';
+import { createNoise3D } from 'simplex-noise';
 
 export const WavyBackground = ({
   children,
@@ -11,24 +11,18 @@ export const WavyBackground = ({
   waveWidth,
   backgroundFill,
   blur = 10,
-  speed = "fast",
+  speed = 'fast',
   waveOpacity = 0.5,
   ...props
 }) => {
   const noise = createNoise3D();
-  let w,
-    h,
-    nt,
-    i,
-    x,
-    ctx,
-    canvas;
+  let w, h, nt, i, x, ctx, canvas;
   const canvasRef = useRef(null);
   const getSpeed = () => {
     switch (speed) {
-      case "slow":
+      case 'slow':
         return 0.001;
-      case "fast":
+      case 'fast':
         return 0.002;
       default:
         return 0.001;
@@ -37,7 +31,7 @@ export const WavyBackground = ({
 
   const init = () => {
     canvas = canvasRef.current;
-    ctx = canvas.getContext("2d");
+    ctx = canvas.getContext('2d');
     w = ctx.canvas.width = window.innerWidth;
     h = ctx.canvas.height = window.innerHeight;
     ctx.filter = `blur(${blur}px)`;
@@ -50,12 +44,7 @@ export const WavyBackground = ({
     render();
   };
 
-  const waveColors = colors ?? [
-    "#fc036f",
-    "#048524",
-    "#1d12e3",
-    '#b5ad0e',
-  ];
+  const waveColors = colors ?? ['#fc036f', '#048524', '#1d12e3', '#b5ad0e'];
   const drawWave = (n) => {
     nt += getSpeed();
     for (i = 0; i < n; i++) {
@@ -73,7 +62,7 @@ export const WavyBackground = ({
 
   let animationId;
   const render = () => {
-    ctx.fillStyle = backgroundFill || "black";
+    ctx.fillStyle = backgroundFill || 'black';
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
     drawWave(5);
@@ -90,24 +79,31 @@ export const WavyBackground = ({
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
     // I'm sorry but i have got to support it on safari.
-    setIsSafari(typeof window !== "undefined" &&
-      navigator.userAgent.includes("Safari") &&
-      !navigator.userAgent.includes("Chrome"));
+    setIsSafari(
+      typeof window !== 'undefined' &&
+        navigator.userAgent.includes('Safari') &&
+        !navigator.userAgent.includes('Chrome')
+    );
   }, []);
 
   return (
-    (<div
-      className={cn("h-screen flex flex-col items-center justify-center", containerClassName)}>
+    <div
+      className={cn(
+        'h-screen flex flex-col items-center justify-center',
+        containerClassName
+      )}
+    >
       <canvas
         className="absolute inset-0 z-0"
         ref={canvasRef}
         id="canvas"
         style={{
           ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
-        }}></canvas>
-      <div className={cn("relative z-10", className)} {...props}>
+        }}
+      ></canvas>
+      <div className={cn('relative z-10', className)} {...props}>
         {children}
       </div>
-    </div>)
+    </div>
   );
 };

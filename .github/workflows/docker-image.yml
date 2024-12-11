@@ -32,7 +32,7 @@ jobs:
 
       - name: Print current directory
         run: pwd
-  
+
       - name: List files in current directory
         run: ls -la
 
@@ -55,4 +55,3 @@ jobs:
           git commit -m 'Update Helm chart with new Docker image tag'
           git remote set-url origin https://x-access-token:${{ secrets.PAT_GITHUB }}@github.com/alexrsit/rosta.dev-helm.git
           git push origin main
-          

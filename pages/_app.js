@@ -5,15 +5,15 @@ import Footer from '@/components/Footer';
 
 function MyApp({ Component, pageProps }) {
   return (
-  <>
-    <Head>
-      <title>rosta.dev</title>
-      <meta name="description" content="rosta.dev application" />
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-    <Header />
-  <Component {...pageProps} />
-    <Footer />
+    <>
+      <Head>
+        <title>rosta.dev</title>
+        <meta name="description" content="rosta.dev application" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
     </>
   );
 }
