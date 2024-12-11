@@ -15,11 +15,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build Docker Image
-        run: docker build . -t alexrsit/nextjsapp:2.0
+        run: docker build . -t alexrsit/nextjsapp:2.1
       - name: Push Docker Image
         run: |
           docker login -u alexrsit -p ${{ secrets.DOCKERHUB_PAT }}
-          docker push alexrsit/nextjsapp:2.0
+          docker push alexrsit/nextjsapp:2.1
 
   update_helm_chart:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
         run: |
           cd rosta.dev-helm/nextjsapp
           sed -i 's|repository: .*|repository: alexrsit/nextjsapp|' values.yaml
-          sed -i 's|tag: .*|tag: 2.0|' values.yaml
+          sed -i 's|tag: .*|tag: 2.1|' values.yaml
           cat values.yaml
 
       - name: Commit and push changes
