@@ -46,7 +46,7 @@ const CharacterInfo = ({ character }) => {
       <div className="bg-gradient-to-br from-yellow-500 to-yellow-700 p-4 rounded-lg shadow-inner">
         <img src={character.characterimg} className="rounded-lg" />
         <strong>
-          {character.name} {character.title}
+        {character.title} {character.name}
         </strong>{' '}
         <br />
         <strong>{character.realm}</strong> <br />
