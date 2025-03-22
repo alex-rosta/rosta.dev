@@ -39,6 +39,6 @@ export const links = [
   {
     title: 'Github',
     icon: <IconBrandGithub className="h-full w-full text-neutral-300" />,
-    href: 'https://github.com/alexrsit',
+    href: 'https://github.com/alex-rosta',
   },
 ];
