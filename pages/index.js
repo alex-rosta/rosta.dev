@@ -30,12 +30,6 @@ export default function VortexDemoSecond() {
           >
             Let&apos;s go!
           </Link>
-          <Link
-            href="/#"
-            className="px-4 py-2 bg-gray-600 hover:bg-gray-700 transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]"
-          >
-            Test auth &#40;coming soon&#41;
-          </Link>
         </div>
       </Vortex>
     </div>
