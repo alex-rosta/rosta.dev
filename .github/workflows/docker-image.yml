@@ -14,7 +14,7 @@ jobs:
   publish_images:
     runs-on: ubuntu-latest
     env:
-      IMAGE_TAG: 1.1.2
+      IMAGE_TAG: 1.1.3
     outputs:
       IMAGE_TAG: ${{ env.IMAGE_TAG }}
     steps:
