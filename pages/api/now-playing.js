@@ -1,5 +1,7 @@
 import { currentlyPlayingSong } from '../../lib/spotify';
 
+export const runtime = 'edge';
+
 export default async function handler(req, res) {
   const response = await currentlyPlayingSong();
 
