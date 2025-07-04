@@ -6,58 +6,39 @@ import {
   IAMContent,
   HomeLabContent,
 } from '@/data/content';
+import { aboutPageText } from '@/data/content/aboutPageText';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { WavyBackground } from '@/components/ui/wavy-background';
 const FlipWords = dynamic(() => import('@/components/ui/flip-words'), {
   ssr: false,
 });
-
-const words = [
-  'IAM',
-  'Kubernetes',
-  'Cloud',
-  'Linux',
-  'Docker',
-  'CI/CD',
-  'K8s',
-  'SAML2.0',
-  'OAuth2.0',
-  'OpenID Connect',
-  'Azure',
-  'AWS',
-  'Python',
-  'PowerShell',
-  'Next.js',
-  'VMware',
-];
 export default function TabsDemo() {
   const tabs = [
     {
-      title: 'About Me',
+      title: aboutPageText.tabs.aboutMe.title,
       value: 'about',
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-green-700 to-green-900 flex items-center">
           <div className="flex-col flex space-y-2">
             <p>
               <FlipWords
-                words={words}
+                words={aboutPageText.flipWords}
                 duration={600}
                 className="text-1xl md:text-4xl font-bold text-white"
                 suppressHydrationWarning
               />
             </p>
             <Link
-              href="/career"
+              href={aboutPageText.tabs.aboutMe.buttonLink}
               className="text-sm md:text-lg font-normal mt-2"
             >
-              Welcome to my about.me page. I&apos;m a Systems Administrator,
-              currently working in Sweden.
+              {aboutPageText.tabs.aboutMe.description}
               <br />
               <button className="relative inline-flex overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-m font-medium text-white backdrop-blur-3xl">
-                  View Career
+                  {aboutPageText.tabs.aboutMe.buttonText}
                 </span>
               </button>
             </Link>
@@ -67,22 +48,21 @@ export default function TabsDemo() {
       ),
     },
     {
-      title: 'Learning',
+      title: aboutPageText.tabs.learning.title,
       value: 'learning',
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-pink-700 to-rose-900 flex items-center">
           <div className="flex-col flex space-y-2">
-            <p>Aspirations</p>
+            <p>{aboutPageText.tabs.learning.mainTitle}</p>
             <Link
-              href="https://roadmap.sh/devops"
+              href={aboutPageText.tabs.learning.buttonLink}
               className="text-sm md:text-lg font-normal mt-2"
             >
-              I&apos;m currently mastering Devops concepts. Kubernetes, CI/CD,
-              Helm and more.
+              {aboutPageText.tabs.learning.description}
               <button className="relative inline-flex overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-m font-medium text-white backdrop-blur-3xl">
-                  View Roadmap
+                  {aboutPageText.tabs.learning.buttonText}
                 </span>
               </button>
             </Link>
@@ -92,19 +72,18 @@ export default function TabsDemo() {
       ),
     },
     {
-      title: 'Homelab',
+      title: aboutPageText.tabs.homelab.title,
       value: 'homelab',
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center">
           <div className="flex-col flex space-y-2">
-            <p>Homelab</p>
-            <Link href="/lab" className="text-sm md:text-lg font-normal mt-2">
-              Where I host this applicaton and other services. It&apos;s a place
-              where I can test new technologies and learn new things.
+            <p>{aboutPageText.tabs.homelab.mainTitle}</p>
+            <Link href={aboutPageText.tabs.homelab.buttonLink} className="text-sm md:text-lg font-normal mt-2">
+              {aboutPageText.tabs.homelab.description}
               <button className="relative inline-flex overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-m font-medium text-white backdrop-blur-3xl">
-                  View setup
+                  {aboutPageText.tabs.homelab.buttonText}
                 </span>
               </button>
             </Link>
@@ -114,15 +93,14 @@ export default function TabsDemo() {
       ),
     },
     {
-      title: 'Cat?',
+      title: aboutPageText.tabs.cat.title,
       value: 'cat',
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-blue-700 to-sky-900 flex items-center">
           <div className="flex-col flex space-y-2">
-            <p>Tessa</p>
+            <p>{aboutPageText.tabs.cat.mainTitle}</p>
             <p className="text-sm md:text-lg font-normal mt-2">
-              Mandatory cat content. This is Tessa, she&apos;s a little over a
-              year old.
+              {aboutPageText.tabs.cat.description}
             </p>
           </div>
           <KubernetesContent />

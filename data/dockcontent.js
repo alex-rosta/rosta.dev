@@ -7,6 +7,7 @@ import {
   IconBrandDocker,
   IconBrandGithub,
 } from '@tabler/icons-react';
+import { siteConfig } from './config/site';
 
 export const links = [
   {
@@ -18,27 +19,27 @@ export const links = [
   {
     title: 'Spotify',
     icon: <IconBrandSpotify className="h-full w-full text-white-300" />,
-    href: 'https://open.spotify.com/playlist/5whHI7frkx9JgpYVV1RzKh?si=52b6961020ae4875',
+    href: siteConfig.socialLinks.spotify,
   },
 
   {
     title: 'Instagram',
     icon: <IconBrandInstagram className="h-full w-full text-neutral-300" />,
-    href: 'https://www.instagram.com/ro.sta/',
+    href: siteConfig.socialLinks.instagram,
   },
   {
     title: 'LinkedIn',
     icon: <IconBrandLinkedin className="h-full w-full text-neutral-300" />,
-    href: 'https://www.linkedin.com/in/alexander-rosta-480a2120a/?trk=people-guest_people_search-card',
+    href: siteConfig.socialLinks.linkedin,
   },
   {
     title: 'Dockerhub',
     icon: <IconBrandDocker className="h-full w-full text-neutral-300" />,
-    href: 'https://hub.docker.com/repositories/alexrsit',
+    href: siteConfig.socialLinks.dockerhub,
   },
   {
     title: 'Github',
     icon: <IconBrandGithub className="h-full w-full text-neutral-300" />,
-    href: 'https://github.com/alex-rosta',
+    href: siteConfig.socialLinks.github,
   },
 ];

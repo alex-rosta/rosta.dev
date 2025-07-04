@@ -2,11 +2,12 @@ import React from 'react';
 import { Vortex } from '@/components/ui/vortex';
 import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect';
 import Link from 'next/link';
+import { siteConfig } from '@/data/config/site';
 
 export default function VortexDemoSecond() {
   const words = [
     {
-      text: 'rosta.dev',
+      text: siteConfig.homePage.title,
       className: 'text-white text-2xl md:text-6xl font-bold text-center',
     },
   ];
@@ -21,14 +22,14 @@ export default function VortexDemoSecond() {
       >
         <TypewriterEffectSmooth words={words} />
         <p className="text-white text-sm md:text-2xl max-w-xl mt-6 text-center">
-          welcome to my page! have a look around and see what I&apos;m up to.
+          {siteConfig.homePage.subtitle}
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
           <Link
-            href="/about"
+            href={siteConfig.homePage.ctaLink}
             className="px-4 py-2 bg-green-600 hover:bg-green-700 transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]"
           >
-            Let&apos;s go!
+            {siteConfig.homePage.ctaText}
           </Link>
         </div>
       </Vortex>
