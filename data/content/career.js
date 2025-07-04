@@ -80,8 +80,12 @@ export const careerTimelineData = [
       ],
       textBlocks: [
         {
-          text: 'Migrated several medium and small businesses to Azure compute and Microsoft 365.\n\nAlso maintained and developed new solutions for existing customers.\n\n✅ Terraform\n✅ Azure\n✅ Microsoft 365\n✅ Intune\n✅ AVD',
+          text: 'Migrated several medium and small businesses to Azure compute and Microsoft 365.\n\nAlso maintained and developed new solutions for existing customers.',
           type: 'description',
+        },
+        {
+          text: '✅ Terraform\n✅ Azure\n✅ Microsoft 365\n✅ Intune\n✅ AVD',
+          type: 'achievements',
         },
       ],
     },
